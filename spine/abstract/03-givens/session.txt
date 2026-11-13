@@ -1,0 +1,6 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+track ids, sorted: List(t01, t02, t03, t04, t05, t06, t07, t08)
+tracks:  List((t03,10), (t05,7), (t01,6))
+artists: List((Mara Quell,14), (Aurora Vale,10), (Kofi and the Static,7))

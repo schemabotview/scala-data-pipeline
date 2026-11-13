@@ -1,0 +1,6 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+tracks:  List((Slow Tide,10), (Night Bus,7), (Northern Lights,6))
+artists: List((Mara Quell,14), (Aurora Vale,10), (Kofi and the Static,7))
+devices: List((mobile,27), (unknown,6), (browser,3))

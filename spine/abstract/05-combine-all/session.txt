@@ -1,0 +1,6 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+tracks:  List((t03,10), (t05,7), (t01,6))
+36 plays, 8 listeners, in one pass
+u01: 24.9 minutes

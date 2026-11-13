@@ -1,0 +1,9 @@
+$ scala-cli compile .
+Compiling project (Scala 3.9.0, JVM (25))
+[error] ./Main.scala:6:24
+[error] Found:    (plays : Array[Play])
+[error] Required: Array[Timed]
+[error]   val first = earliest(plays)
+[error]                        ^^^^^
+Error compiling project (Scala 3.9.0, JVM (25))
+Compilation failed

@@ -1,0 +1,5 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+earliest play: 2026-10-01T07:12:05Z
+earliest of both: 2026-10-01T06:58:00Z

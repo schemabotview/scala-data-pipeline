@@ -6,13 +6,14 @@ import { decideScenes } from './decide'
 import { modelScenes } from './model'
 import { transformScenes } from './transform'
 import { saveScenes } from './save'
+import { abstractScenes } from './abstract'
 
 // Scene registry. Sections reference scenes by id; a graphl-flow scene carries no id of its own, so
 // the id is the key here. Scenes are grouped by course (one folder each, mirroring src/content),
 // each folder exporting a Record; ids are globally unique, and a duplicate THROWS rather than
 // letting one course's scene shadow another's. A scene no section uses yet is still reachable at
 // the shell's bare scene route, `#/<sceneId>` (`npm run shots -- <sceneId>`).
-const GROUPS: Record<string, SceneModel>[] = [introScenes, startScenes, holdScenes, decideScenes, modelScenes, transformScenes, saveScenes]
+const GROUPS: Record<string, SceneModel>[] = [introScenes, startScenes, holdScenes, decideScenes, modelScenes, transformScenes, saveScenes, abstractScenes]
 
 export const SCENES: Record<string, SceneModel> = {}
 for (const group of GROUPS)
