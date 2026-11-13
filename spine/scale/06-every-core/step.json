@@ -1,0 +1,1 @@
+{"from": "scale/05-partition", "changes": ["Parallel.scala"], "volatile": true, "setup": ["scala-cli run . -q -M generate -- 10000000", "scala-cli run . -q -M partition -- 4"]}

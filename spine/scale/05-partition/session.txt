@@ -1,0 +1,8 @@
+$ scala-cli run . -q -M partition -- 4
+4 partitions written to out/shuffle
+$ wc -l out/shuffle/*.csv
+  1501844 out/shuffle/part-0.csv
+  1500455 out/shuffle/part-1.csv
+  1498616 out/shuffle/part-2.csv
+  5499085 out/shuffle/part-3.csv
+ 10000000 total

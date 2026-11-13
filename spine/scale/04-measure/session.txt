@@ -1,0 +1,5 @@
+$ scala-cli run . -q -M measure
+read           1,249 ms
+split          2,475 ms
+parse          2,710 ms
+aggregate      3,576 ms

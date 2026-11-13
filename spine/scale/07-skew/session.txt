@@ -1,0 +1,13 @@
+$ scala-cli run . -q -M partitionSalted -- 4 t03
+4 partitions written to out/shuffle, t03 spread over all of them
+$ wc -l out/shuffle/*.csv
+  2688462 out/shuffle/part-0.csv
+  2688819 out/shuffle/part-1.csv
+  2685854 out/shuffle/part-2.csv
+  1936865 out/shuffle/part-3.csv
+ 10000000 total
+$ scala-cli run . -q -M parallel
+4 partitions, 4 cores
+one core       4,189 ms
+every core     1,279 ms
+same answer: true

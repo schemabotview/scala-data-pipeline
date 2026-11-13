@@ -7,6 +7,7 @@ import { transform } from './transform'
 import { save } from './save'
 import { abstractCourse } from './abstract'
 import { trust } from './trust'
+import { scale } from './scale'
 import type { Course, Section } from './types'
 
 // Course registry, in syllabus order. One course per chapter of COURSE-PLAN.md; a course is
@@ -21,6 +22,7 @@ export const COURSES: Record<string, Course> = {
   [save.id]: save,
   [abstractCourse.id]: abstractCourse,
   [trust.id]: trust,
+  [scale.id]: scale,
 }
 
 export type { Course, Section }

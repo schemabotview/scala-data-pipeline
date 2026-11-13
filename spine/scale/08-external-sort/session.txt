@@ -1,0 +1,9 @@
+$ scala-cli run . -q -M externalSort --java-opt -Xmx512m -- 1000000
+10 sorted runs of up to 1000000 lines
+merged 10000000 lines into out/sorted.csv
+$ ls out/runs | wc -l
+10
+$ head -n 3 out/sorted.csv
+e9209824,u00000,t02,2026-10-01T00:05:42Z,99183,web
+e5746465,u00000,t07,2026-10-01T00:21:00Z,147162,car
+e718935,u00000,t03,2026-10-01T00:27:32Z,71418,car

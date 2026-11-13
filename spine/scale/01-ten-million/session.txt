@@ -1,0 +1,8 @@
+$ scala-cli run . -q -M generate -- 10000000
+wrote 10,000,000 plays to data/big/plays.csv (525 MB)
+$ head -n 3 data/big/plays.csv
+event_id,user_id,track_id,started_at,ms_played,device
+e1,u31697,t07,2026-10-01T23:17:45Z,135694,phone
+e2,u39652,t03,2026-10-01T10:13:17Z,89142,car
+$ scala-cli run . -q -M naive --java-opt -Xmx512m 2>&1 | head -n 1
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space

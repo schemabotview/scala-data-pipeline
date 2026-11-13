@@ -1,0 +1,5 @@
+$ scala-cli run . -q -M parallel
+4 partitions, 4 cores
+one core       4,337 ms
+every core     2,299 ms
+same answer: true

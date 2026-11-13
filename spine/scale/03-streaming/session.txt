@@ -1,0 +1,3 @@
+$ scala-cli run . -q -M streaming --java-opt -Xmx512m
+top tracks: List((t03,4749256), (t04,751794), (t05,750384))
+heap in use at the end: 69 MB

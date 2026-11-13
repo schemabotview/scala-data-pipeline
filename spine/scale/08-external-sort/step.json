@@ -1,0 +1,1 @@
+{"from": "scale/07-skew", "changes": ["Sort.scala"], "setup": ["scala-cli run . -q -M generate -- 10000000"]}

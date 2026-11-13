@@ -1,0 +1,1 @@
+{"from": "scale/04-measure", "changes": ["Shuffle.scala"], "setup": ["scala-cli run . -q -M generate -- 10000000"]}

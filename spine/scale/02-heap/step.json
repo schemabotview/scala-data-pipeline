@@ -1,0 +1,1 @@
+{"lab": true, "volatile": true, "setup": ["scala-cli run . -q -M generate -- 10000000"]}

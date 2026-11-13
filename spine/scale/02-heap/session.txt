@@ -1,0 +1,15 @@
+$ scala-cli run . -q -M naive --java-opt -Xmx512m --java-opt -Xlog:gc 2>&1 | grep -o "[0-9]*M->[0-9]*M([0-9]*M)" | head -n 12
+29M->25M(216M)
+99M->97M(216M)
+136M->136M(216M)
+161M->161M(216M)
+178M->178M(335M)
+229M->228M(335M)
+261M->261M(335M)
+283M->283M(335M)
+284M->284M(475M)
+298M->299M(490M)
+333M->333M(490M)
+360M->358M(490M)
+$ scala-cli run . -q -M naive --java-opt -Xmx512m --java-opt -Xlog:gc 2>&1 | grep -c Pause
+34

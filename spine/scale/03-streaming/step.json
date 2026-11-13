@@ -1,0 +1,1 @@
+{"from": "scale/01-ten-million", "changes": ["Stream.scala"], "volatile": true, "setup": ["scala-cli run . -q -M generate -- 10000000"]}
