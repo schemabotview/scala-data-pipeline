@@ -134,7 +134,7 @@ The bad rows are real, each one the reason a feature exists:
 | Bad row | Caught by |
 | --- | --- |
 | `3x` as `ms_played` | 2.6 (an exception: `"3x".toInt`), then 4.8 (`Either`) |
-| A play of `-3000` ms | 5.5 (a smart constructor) |
+| A play of `-3000` ms | 5.5 (`Play.from`, a smart constructor) |
 | A track id not in the catalog | 4.10, reported with the line number |
 | The same `event_id` twice (a phone retried the upload) | 6.6 (dedup) |
 | A title with a comma and quotes: `"Hello, \"World\""` | 3.3's naive `split` breaks it; 9.4's round-trip property finds it |
@@ -230,7 +230,7 @@ Course 4 reads its export from a String in `Data.scala`; files arrive in Course 
 | 2 | ADTs: enums with data | `Event`: Play, Skip, Like | each case with its own fields |
 | 3 | Exhaustiveness | add `Skip`; the compiler lists the unhandled matches | the match, the missing case lit |
 | 4 | Opaque types | `TrackId`, `UserId`, `Millis`: mixing refused at compile time | one type at compile time, a plain `String` at run time (`javap`) |
-| 5 | Companion objects and smart constructors | `Millis.from(-3000)` → `Left` | construction → accepted / rejected |
+| 5 | Companion objects and smart constructors | `case class Play private`; `Play.from(…, -3000, …)` → `Left` (durations stay `Long`, so later courses add them freely) | construction → accepted / rejected |
 | 6 | Traits | `Timed` shared by `Play` and `Skip` | one trait, two cases |
 | 7 | Extension methods | `ms.toMinutes`, `play.isCounted` | a method attached from outside |
 | 8 | Errors as an `enum` | `ParseError`: BadNumber, UnknownTrack, NegativeDuration… | the error cases, each with its report line |

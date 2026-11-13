@@ -1,0 +1,7 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+4 plays, 3 rejected
+u01 played Slow Tide
+u02 skipped Glasshouse after 9 s
+u01 liked Slow Tide

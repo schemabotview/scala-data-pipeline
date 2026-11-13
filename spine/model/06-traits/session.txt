@@ -1,0 +1,8 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+2026-10-01T07:12:05Z is in hour 7
+2026-10-01T07:30:41Z is in hour 7
+2026-10-01T07:16:02Z is in hour 7
+2026-10-01T09:40:55Z is in hour 9
+2026-10-01T10:02:11Z is in hour 10

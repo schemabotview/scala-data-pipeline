@@ -1,0 +1,8 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+4 plays, 4 rejected
+  line 5, BadNumber(3x): not a number: 3x
+  line 6, UnknownTrack(t99): unknown track: t99
+  line 7, WrongFieldCount(4): 4 fields, not 6
+  line 9, NegativeDuration(-3000): negative duration: -3000

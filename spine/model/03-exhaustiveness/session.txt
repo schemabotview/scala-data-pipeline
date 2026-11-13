@@ -1,0 +1,9 @@
+$ scala-cli compile .
+Compiling project (Scala 3.9.0, JVM (25))
+[warn] ./Main.scala:13:38
+[warn] match may not be exhaustive.
+[warn] 
+[warn] It would fail on pattern case: Event.Shared(_, _, _)
+[warn] def describe(event: Event): String = event match
+[warn]                                      ^^^^^
+Compiled project (Scala 3.9.0, JVM (25))

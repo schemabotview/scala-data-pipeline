@@ -1,0 +1,8 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+4 of 4 plays counted
+  e0001 on mobile: 3.6 min
+  e0002 on unknown: 3.3 min
+  e0003 on mobile: 1.0 min
+  e0010 on mobile: 4.0 min
