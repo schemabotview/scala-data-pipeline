@@ -1,0 +1,6 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+ok: {"type":"like","user_id":"u03","ms":[214000,null,true]}
+refused, column 16: expected ',' or '}'
+refused, column 65: expected a closing quote

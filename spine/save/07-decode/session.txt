@@ -1,0 +1,9 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+4 events, 1 rejected
+  u03 played Paper Boats
+  u03 skipped Lowlands after 9 s
+  u03 played Slow Tide
+  u03 liked Slow Tide
+  line 5 refused: column 65: expected a closing quote

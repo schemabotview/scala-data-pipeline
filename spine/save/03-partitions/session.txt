@@ -1,0 +1,8 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+2026-10-01: 28 plays → out/date=2026-10-01/chart.csv
+2026-10-02: 8 plays → out/date=2026-10-02/chart.csv
+$ find out -type f | sort
+out/date=2026-10-01/chart.csv
+out/date=2026-10-02/chart.csv

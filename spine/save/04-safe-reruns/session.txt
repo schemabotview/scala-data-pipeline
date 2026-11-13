@@ -1,0 +1,12 @@
+$ scala-cli run . > /dev/null
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+$ md5sum out/date=*/chart.csv
+4055b9c2799718cffe5c6a1902a793cc  out/date=2026-10-01/chart.csv
+eb9190759f2dc8c4e393514cd78da52d  out/date=2026-10-02/chart.csv
+$ scala-cli run . > /dev/null
+$ md5sum out/date=*/chart.csv
+4055b9c2799718cffe5c6a1902a793cc  out/date=2026-10-01/chart.csv
+eb9190759f2dc8c4e393514cd78da52d  out/date=2026-10-02/chart.csv
+$ ls -A out/date=2026-10-01
+chart.csv

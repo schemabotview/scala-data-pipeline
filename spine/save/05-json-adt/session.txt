@@ -1,0 +1,8 @@
+$ head -n 2 data/uploads/phone-u03.jsonl
+{"type":"play","event_id":"e1001","user_id":"u03","track_id":"t02","started_at":"2026-10-01T21:02:11Z","ms_played":176000,"device":"phone","uploaded_at":"2026-10-03T08:15:40Z"}
+{"type":"skip","user_id":"u03","track_id":"t07","started_at":"2026-10-01T21:05:20Z","after_ms":9000,"uploaded_at":"2026-10-03T08:15:40Z"}
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+Obj(List((type,Str(like)), (user_id,Str(u03)), (track_id,Str(t03)), (devices,Arr(List(Str(phone), Null))), (ms,Num(214000.0))))
+{"type":"like","user_id":"u03","track_id":"t03","devices":["phone",null],"ms":214000}

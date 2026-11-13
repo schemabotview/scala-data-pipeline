@@ -1,0 +1,5 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+data/plays/2026-10-01.csv: 38 rows, 34 plays, 4 rejected
+Failure(java.io.FileNotFoundException: data/plays/2026-10-02.csv (No such file or directory))
