@@ -1,0 +1,5 @@
+{"type":"play","event_id":"e1001","user_id":"u03","track_id":"t02","started_at":"2026-10-01T21:02:11Z","ms_played":176000,"device":"phone","uploaded_at":"2026-10-03T08:15:40Z"}
+{"type":"skip","user_id":"u03","track_id":"t07","started_at":"2026-10-01T21:05:20Z","after_ms":9000,"uploaded_at":"2026-10-03T08:15:40Z"}
+{"type":"play","event_id":"e1002","user_id":"u03","track_id":"t03","started_at":"2026-10-01T21:05:31Z","ms_played":214000,"device":"phone","uploaded_at":"2026-10-03T08:15:40Z"}
+{"type":"like","user_id":"u03","track_id":"t03","uploaded_at":"2026-10-03T08:15:41Z"}
+{"type":"play","event_id":"e1003","user_id":"u03","track_id":"t0

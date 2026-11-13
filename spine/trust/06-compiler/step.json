@@ -1,0 +1,1 @@
+{"from": "trust/05-logging", "changes": ["Device.scala", "Ids.scala", "Json.scala", "ParseError.scala", "Transform.scala", "project.scala"]}

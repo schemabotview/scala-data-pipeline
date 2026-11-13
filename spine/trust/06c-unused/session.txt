@@ -1,0 +1,7 @@
+$ scala-cli compile .
+Compiling project (Scala 3.9.0, JVM (25))
+[error] ./Transform.scala:2:57
+[error] unused import
+[error] import java.time.{Duration, Instant, LocalDate, ZoneId, ZoneOffset}
+[error]                                                         ^^^^^^^^^^
+Error compiling project (Scala 3.9.0, JVM (25))

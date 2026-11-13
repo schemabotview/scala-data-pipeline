@@ -1,0 +1,1 @@
+{"from": "trust/04-bug-found", "changes": ["CsvCodec.scala", "Io.scala", "Log.scala", "Main.scala", "project.scala"], "volatile": true}

@@ -1,0 +1,15 @@
+$ scala-cli test . -q --test-only CsvTest -- -v
+Test run CsvTest started
+CsvTest:
+CsvTest.a chart row survives a round trip started
+  + a chart row survives a round trip 0.118s
+CsvTest: finished 0.145s
+Test run CsvTest finished: 0 failed, 0 ignored, 1 total 0.155s
+$ scala-cli run . -q
+INFO playstream: read 2 files: 42 plays, 4 rejected
+WARNING playstream: line 5: not a number: 3x
+WARNING playstream: line 6: unknown track: t99
+WARNING playstream: line 7: 4 fields, not 6
+WARNING playstream: line 9: negative duration: -3000
+INFO playstream: 1 duplicate(s) dropped
+INFO playstream: wrote out/chart.csv: 3 rows

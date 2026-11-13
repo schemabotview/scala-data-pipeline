@@ -1,0 +1,15 @@
+$ scala-cli test . -q -- -v
+Test run ParseTest started
+ParseTest:
+ParseTest.a good row becomes a Play started
+  + a good row becomes a Play 0.017s
+ParseTest.refuses e0007: not a number: 3x started
+  + refuses e0007: not a number: 3x 0.001s
+ParseTest.refuses e0008: unknown track: t99 started
+  + refuses e0008: unknown track: t99 0.0s
+ParseTest.refuses e0009: 4 fields, not 6 started
+  + refuses e0009: 4 fields, not 6 0.0s
+ParseTest.refuses e0011: negative duration: -3000 started
+  + refuses e0011: negative duration: -3000 0.001s
+ParseTest: finished 0.036s
+Test run ParseTest finished: 0 failed, 0 ignored, 5 total 0.055s

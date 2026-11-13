@@ -1,0 +1,4 @@
+$ scala-cli test . --test-only CsvTest 2>&1 | grep -E "==> X|Falsified|ARG_0:"
+==> X CsvTest.a chart row survives a round trip 0.082s munit.FailException: /home/ana/playstream/test/CsvTest.test.scala:14
+Falsified after 36 passed tests.
+> ARG_0: ","

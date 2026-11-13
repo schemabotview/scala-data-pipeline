@@ -1,0 +1,1 @@
+{"from": "trust/03-properties", "changes": ["CsvCodec.scala", "test/CsvTest.test.scala"], "volatile": true}

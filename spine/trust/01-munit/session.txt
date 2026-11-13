@@ -1,0 +1,13 @@
+$ scala-cli test . -- -v
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+Compiling project (test, Scala 3.9.0, JVM (25))
+Compiled project (test, Scala 3.9.0, JVM (25))
+Test run ParseTest started
+ParseTest:
+ParseTest.a good row becomes a Play started
+  + a good row becomes a Play 0.027s
+ParseTest.3x is not a number started
+  + 3x is not a number 0.001s
+ParseTest: finished 0.051s
+Test run ParseTest finished: 0 failed, 0 ignored, 2 total 0.065s

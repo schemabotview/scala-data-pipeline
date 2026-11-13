@@ -1,0 +1,13 @@
+$ scala-cli test . --test-only MonoidTest -- -v
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+Compiling project (test, Scala 3.9.0, JVM (25))
+Compiled project (test, Scala 3.9.0, JVM (25))
+Test run MonoidTest started
+MonoidTest:
+MonoidTest.combine is associative, for counts per track started
+  + combine is associative, for counts per track 0.172s
+MonoidTest.empty changes nothing started
+  + empty changes nothing 0.034s
+MonoidTest: finished 0.224s
+Test run MonoidTest finished: 0 failed, 0 ignored, 2 total 0.231s

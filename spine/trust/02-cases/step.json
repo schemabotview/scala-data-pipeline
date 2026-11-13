@@ -1,0 +1,1 @@
+{"from": "trust/01-munit", "changes": ["test/ParseTest.test.scala"], "volatile": true}

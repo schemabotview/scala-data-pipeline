@@ -1,0 +1,20 @@
+$ scala-cli compile . --test
+Compiling project (Scala 3.9.0, JVM (25))
+[error] ./Json.scala:11:10
+[error] Values of types Json and Json cannot be compared with == or !=
+[error]     case Null => "null"
+[error]          ^^^^
+[error] ./Parse.scala:17:13
+[error] Values of types Device and Device cannot be compared with == or !=
+[error]   case Some(Device.Phone) | Some(Device.Car) => "mobile"
+[error]             ^^^^^^^^^^^^
+[error] ./Parse.scala:17:34
+[error] Values of types Device and Device cannot be compared with == or !=
+[error]   case Some(Device.Phone) | Some(Device.Car) => "mobile"
+[error]                                  ^^^^^^^^^^
+[error] ./Parse.scala:18:13
+[error] Values of types Device and Device cannot be compared with == or !=
+[error]   case Some(Device.Web) => "browser"
+[error]             ^^^^^^^^^^
+Error compiling project (Scala 3.9.0, JVM (25))
+Compilation failed
