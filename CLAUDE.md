@@ -63,7 +63,9 @@ editor over a 72-column terminal sharing 26 rows | side pane 434, TITLED with th
 model, ONE diagram and at most one table outside it, no bullets, no notes, filled ≥ 1/2.
 `src/scenes/ide.ts` holds the text helpers (`lineOf`, `trim`, `PROMPT`, `ERROR_START`: scala-cli's
 `[error] `, an uncaught exception, the REPL's `-- [E…] … Error:` and exception lines). A side-pane
-terminal narrower than 72 columns is hard-wrapped by the scene (2.5's misspelt name). In a concept
+terminal narrower than 72 columns is hard-wrapped by the scene (2.5's misspelt name). When a
+highlight's span does not fit the editor, frame.ts shows a hand-picked `show`, or else the highlighted
+lines themselves, folded between and grown to fill (a divergence from java-bank, which throws). In a concept
 scene, a long code box takes `wrap: true` and a `w` (2.3's bytecode).
 
 ## Engine gaps (graphl-flow)

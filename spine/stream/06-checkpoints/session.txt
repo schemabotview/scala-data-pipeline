@@ -1,0 +1,16 @@
+$ mkdir -p inbox && cp data/stream/b1.jsonl data/stream/b2.jsonl inbox/
+$ scala-cli run . -q -M tick
+INFO playstream: b1.jsonl: 0 final, 0 late
+INFO playstream: b2.jsonl: 1 final, 0 late
+INFO playstream: checkpoint saved: 2 files done
+$ cp data/stream/b3.jsonl inbox/
+$ CRASH=1 scala-cli run . -q -M tick; echo "exit $?"
+INFO playstream: b3.jsonl: 1 final, 1 late
+WARNING playstream: crashing before the checkpoint is saved
+exit 137
+$ scala-cli run . -q -M tick
+INFO playstream: b3.jsonl: 1 final, 1 late
+INFO playstream: checkpoint saved: 3 files done
+$ cat out/late.csv
+e2010
+e2010

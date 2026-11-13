@@ -1,0 +1,1 @@
+{"from": "stream/06-checkpoints", "changes": ["stream/Checkpoint.scala", "stream/Job.scala"], "setup": ["mkdir -p inbox && cp data/stream/b1.jsonl data/stream/b2.jsonl inbox/ && scala-cli run . -q -M tick"]}

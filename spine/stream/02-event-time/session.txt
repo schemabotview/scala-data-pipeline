@@ -1,0 +1,13 @@
+$ scala-cli run . -q -M lateness
+e2001 played 10-02 20:10, heard 10-02 21:05:  0h54m late
+e2002 played 10-02 20:40, heard 10-02 21:05:  0h24m late
+e2003 played 10-02 20:55, heard 10-02 21:05:  0h09m late
+e2004 played 10-02 21:02, heard 10-02 21:05:  0h02m late
+e2005 played 10-02 21:15, heard 10-02 22:10:  0h54m late
+e2006 played 10-02 21:50, heard 10-02 22:10:  0h19m late
+e2007 played 10-02 22:05, heard 10-02 22:10:  0h04m late
+e2008 played 10-02 22:30, heard 10-02 23:20:  0h49m late
+e2009 played 10-02 23:10, heard 10-02 23:20:  0h09m late
+e2010 played 10-02 20:20, heard 10-02 23:20:  2h59m late
+e2011 played 10-02 21:30, heard 10-04 08:00: 34h29m late
+e2012 played 10-04 07:58, heard 10-04 08:00:  0h01m late

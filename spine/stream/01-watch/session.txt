@@ -1,0 +1,5 @@
+$ mkdir -p inbox out
+$ (sleep 6; cp data/stream/b1.jsonl out/b1.tmp && mv out/b1.tmp inbox/b1.jsonl; sleep 1; cp data/stream/b2.jsonl out/b2.tmp && mv out/b2.tmp inbox/b2.jsonl) & scala-cli run . -q -M watch -- 2
+watching inbox for 2 more
+picked up b1.jsonl: 4 events
+picked up b2.jsonl: 3 events

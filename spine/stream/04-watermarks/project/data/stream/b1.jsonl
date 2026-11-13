@@ -1,0 +1,4 @@
+{"type":"play","event_id":"e2001","user_id":"u04","track_id":"t03","started_at":"2026-10-02T20:10:12Z","ms_played":214000,"device":"phone","uploaded_at":"2026-10-02T21:05:00Z"}
+{"type":"play","event_id":"e2002","user_id":"u05","track_id":"t05","started_at":"2026-10-02T20:40:31Z","ms_played":240000,"device":"car","uploaded_at":"2026-10-02T21:05:00Z"}
+{"type":"play","event_id":"e2003","user_id":"u04","track_id":"t03","started_at":"2026-10-02T20:55:02Z","ms_played":214000,"device":"phone","uploaded_at":"2026-10-02T21:05:00Z"}
+{"type":"play","event_id":"e2004","user_id":"u06","track_id":"t01","started_at":"2026-10-02T21:02:44Z","ms_played":198000,"device":"web","uploaded_at":"2026-10-02T21:05:00Z"}

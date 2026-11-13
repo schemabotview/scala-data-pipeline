@@ -1,0 +1,11 @@
+$ scala-cli run . -q -M watermarks
+b1.jsonl: watermark 10-02 20:02
+b2.jsonl: watermark 10-02 21:05
+  final 20:00  t03:2 t05:1
+b3.jsonl: watermark 10-02 22:10
+  final 21:00  t01:1 t02:1 t03:1
+  late  e2010, for 20:00
+b4.jsonl: watermark 10-04 06:58
+  final 22:00  t03:1 t05:1
+  final 23:00  t03:1
+  late  e2011, for 21:00

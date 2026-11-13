@@ -127,7 +127,8 @@ export interface Frame {
   model: string
   tree: TreeEntry[]
   /** The file in the editor; `highlight` lines are found by text by the caller (lineOf). `show` is
-   *  used only when the highlighted span does not fit the editor. `lang` defaults to scala. */
+   *  used only when the highlighted span does not fit the editor; without one, the highlighted lines
+   *  themselves are shown, folded between and grown to fill. `lang` defaults to scala. */
   editor: { file: string; code: string; highlight?: number[]; show?: [number, number][]; lang?: Code['lang'] }
   /** The step's session.txt, raw. */
   session: string
@@ -170,8 +171,15 @@ export function ideFrame2({ model, tree, editor, session, side, edges = [], proj
       : editor.show && rowsOf(code.split('\n'), 1, code.split('\n').length) > editorRows ? grow(code, editor.show, editorRows)
       : windowFor(code, 1, 1, editorRows)
   } catch (e) {
-    if (!editor.show) throw new Error(`"${model}": ${(e as Error).message}`)
-    try { show = grow(code, editor.show, editorRows) } catch (f) { throw new Error(`"${model}": ${(f as Error).message}`) }
+    // The highlight's span does not fit: show the hand-picked ranges, or else the highlighted lines
+    // themselves (each run of them a range), grown to fill the editor. Throws if neither fits.
+    const picked = editor.show ?? hl.slice().sort((x, y) => x - y).reduce<[number, number][]>((out, n) => {
+      const last = out[out.length - 1]
+      if (last && n <= last[1] + 1) last[1] = Math.max(last[1], n); else out.push([n, n])
+      return out
+    }, [])
+    if (!picked.length) throw new Error(`"${model}": ${(e as Error).message}`)
+    try { show = grow(code, picked, editorRows) } catch (f) { throw new Error(`"${model}": ${(f as Error).message}`) }
   }
   const ed: Code = {
     type: 'code', id: 'editor', filename: editor.file, lang: editor.lang ?? 'scala', code, highlight: hl, wrap: true,

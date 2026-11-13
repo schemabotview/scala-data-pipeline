@@ -1,0 +1,6 @@
+$ scala-cli run . -q -M fold
+b1.jsonl: 0 final, 0 late
+b2.jsonl: 1 final, 0 late
+b3.jsonl: 1 final, 1 late
+b4.jsonl: 2 final, 1 late
+still open: List(10-04 07:00)
