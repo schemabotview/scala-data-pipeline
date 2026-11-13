@@ -1,0 +1,9 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+e0001 on mobile
+e0002 on unknown
+e0003 on mobile
+e0004 on browser
+e0005 on mobile
+e0006 on browser

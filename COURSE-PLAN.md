@@ -208,16 +208,19 @@ scene as a `code` node imported from a lab. ◆ side pane = a small picture of t
 
 | # | Section | Step | Side pane |
 | --- | --- | --- | --- |
-| 1 | Everything is an expression | `val status = if ms >= 30_000 then "counted" else "skipped"` | the expression tree, one value out |
-| 2 | `match` | the device string → a label | the value against each case |
-| 3 | Loops and `for` | total ms per user with a loop | cursor down the list |
-| 4 | Methods ◆ side pane: the call stack | `def parse(line: String): Play` | a frame pushed, popped |
-| 5 | ◆ full scene: the JVM memory model | concept + lab | stack frames → heap objects; one `Play`'s real size beside it |
-| 6 | Functions as values | `plays.filter(_.msPlayed >= 30_000)` | a function passed into `filter` |
-| 7 | Exceptions | a bad row stops the whole file; `try` | the exception travelling up the frames |
-| 8 | `Either` | `parse` returns `Either[ParseError, Play]` | two tracks: Right flows on, Left skips |
-| 9 | for-comprehensions | parse field after field | the `for` ↔ the `flatMap` chain it means |
+| 1 | Everything is an expression | the day moves to `Data.scala`; `val status = if ms >= 30_000 then "counted" else "skipped"`; a block's last line is its value | the expression tree, one value out |
+| 2 | Loops and `for` | total ms of the day; `for … if …` counted plays only | cursor down the list |
+| 3 | `match` | each play's `device` (an Option) → a label, inside the loop | the value against each case |
+| 4 | Methods ◆ side pane: the call stack | `Parse.scala`: `def parse(line: String): Play`, `deviceLabel`, `isCounted` | a frame pushed, popped |
+| 5 | ◆ full scene: the JVM memory model | concept + lab (the real frames from `getStackTrace`; a million plays measured) | stack frames → heap objects; one `Play`'s real size beside it |
+| 6 | Functions as values | `today.filter(isCounted)`, `_.msPlayed >= 30_000`, `map(_.trackId)` | a function passed into `filter` |
+| 7 | Exceptions | the export, a triple-quoted String in `Data.scala`; `3x` stops it; `try` per line | the exception travelling up the frames |
+| 8 | `Either` | `parse` returns `Either[String, Play]` (a `ParseError` enum replaces the String in 5.8) | two tracks: Right flows on, Left skips |
+| 9 | for-comprehensions | parse field after field: field count, number, known track | the `for` ↔ the `flatMap` chain it means |
 | 10 | Every bad row, reported | `partitionMap`: good plays and rejections with line numbers | rows tagged ok / rejected with reason |
+
+Course 4 reads its export from a String in `Data.scala`; files arrive in Course 7, which moves it to
+`data/plays/`.
 
 **5. `model` · Model the domain · 8**
 

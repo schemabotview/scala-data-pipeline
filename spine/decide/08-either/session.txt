@@ -1,0 +1,10 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+ok: e0001, device Some(phone)
+ok: e0002, device None
+ok: e0003, device Some(phone)
+skipped: not a number: 3x
+ok: e0008, device Some(phone)
+skipped: 4 fields, not 6
+ok: e0010, device Some(car)

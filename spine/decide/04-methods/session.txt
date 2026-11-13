@@ -1,0 +1,10 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+e0001 on mobile: counted
+e0002 on unknown: counted
+e0003 on mobile: counted
+e0004 on browser: counted
+e0005 on mobile: counted
+e0006 on browser: skipped
+e0007 on browser: counted

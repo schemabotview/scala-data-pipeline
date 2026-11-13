@@ -1,0 +1,11 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+4 plays, 3 rejected
+  e0001 Slow Tide
+  e0002 Northern Lights
+  e0003 Glasshouse
+  e0010 Night Bus
+  rejected, line 5: not a number: 3x
+  rejected, line 6: unknown track: t99
+  rejected, line 7: 4 fields, not 6

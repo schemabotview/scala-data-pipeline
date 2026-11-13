@@ -1,0 +1,10 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+ok: e0001
+skipped, Index 5 out of bounds for length 5
+ok: e0003
+skipped, For input string: "3x"
+ok: e0008
+skipped, Index 4 out of bounds for length 4
+ok: e0010

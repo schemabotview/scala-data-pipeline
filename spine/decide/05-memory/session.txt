@@ -1,0 +1,8 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+frame: parse, line 6
+frame: run, line 11
+frame: main, line 10
+Play(e0001,u01,t03,2026-10-01T07:12:05Z,214000,Some(phone))
+1000000 plays: about 45 bytes each

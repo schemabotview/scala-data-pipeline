@@ -1,0 +1,9 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+listened today: 14.6 minutes
+counted: e0001 (t03)
+counted: e0002 (t01)
+counted: e0003 (t04)
+counted: e0004 (t03)
+counted: e0005 (t02)
