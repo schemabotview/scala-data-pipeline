@@ -20,9 +20,22 @@ overrides. Infra ported from **java-bank** (spine replay, IDE frame v2, checks);
 
 | # | Course | Sections | Status |
 | --- | --- | --- | --- |
-| 1 | `intro` | 2 | — (authored after the pilot) |
-| 2 | `start` | 6 | authored, replayed, checked, looked at (pilot, 2026-11-13): awaiting the owner's review |
-| 3–12 | | 75 | — |
+| 1 | `intro` | 2 | authored (1.2 shows the finished jar's real HTTP answers, from 12.4) |
+| 2 | `start` | 6 | authored (pilot, approved by the owner 2026-11-13) |
+| 3 | `hold` | 9 | authored |
+| 4 | `decide` | 10 | authored |
+| 5 | `model` | 8 | authored |
+| 6 | `transform` | 8 | authored |
+| 7 | `save` | 7 | authored |
+| 8 | `abstract` | 6 | authored |
+| 9 | `trust` | 6 | authored |
+| 10 | `scale` | 8 | authored (10M plays; replays take ~5 min) |
+| 11 | `stream` | 7 | authored |
+| 12 | `ship` | 6 | authored |
+
+All 83 sections authored 2026-11-13: every spine step replayed, `npm run check` clean at 4K, every
+frame looked at. Awaiting the owner's review; then audio (the Colab notebook is not ported yet),
+recording, the film and the publish kit.
 
 ## Toolchain: OpenJDK 25.0.5.0.3, scala-cli 1.19.0, Scala 3.9.0
 
@@ -70,10 +83,10 @@ scene, a long code box takes `wrap: true` and a `w` (2.3's bytecode).
 
 ## Engine gaps (graphl-flow)
 
-graphl-flow 0.11 already has `lang: 'scala'`, and its shared keyword set covers Courses 2–4.
-Missing, needed from Course 5 on (an engine minor, deliberately not done yet): `given`,
-`extension`, `opaque`, `derives`, `lazy`, `override`, `inline`; a `scala` / `.scala` icon in the tree
-(`Tree.tsx BY_EXTENSION`).
+graphl-flow 0.11 already has `lang: 'scala'`, and its shared keyword set covers most of Scala.
+Missing (an engine minor, deliberately not done yet, owner 2026-11-13): `given`, `extension`,
+`opaque`, `derives`, `lazy`, `override`, `inline` draw as plain names from Course 5 on; and a
+`scala` / `.scala` icon in the tree (`Tree.tsx BY_EXTENSION`).
 
 ## Checks, before handing over
 

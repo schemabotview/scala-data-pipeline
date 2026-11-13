@@ -1,0 +1,14 @@
+$ cat playstream.conf
+# playstream settings
+top = 10
+out = reports
+$ scala-cli run . -q -M settings
+data  = data/plays         from default
+out   = reports            from file
+top   = 10                 from file
+zone  = America/New_York   from default
+$ PLAYSTREAM_TOP=3 scala-cli run . -q -M settings -- --zone=Europe/London
+data  = data/plays         from default
+out   = reports            from file
+top   = 3                  from env
+zone  = Europe/London      from flag

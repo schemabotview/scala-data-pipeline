@@ -1,0 +1,6 @@
+$ ./playstream.jar serve & sleep 3; curl -s localhost:8080/charts/2026-10-01; echo; curl -s localhost:8080/charts/2026-12-25; echo; kill $!
+INFO playstream: serving charts on http://localhost:8080/charts/<date>
+INFO playstream: GET /charts/2026-10-01: 200
+[{"rank":1,"title":"Slow Tide","artist":"Mara Quell","plays":6},{"rank":2,"title":"Night Bus","artist":"Kofi and the Static","plays":6},{"rank":3,"title":"Northern Lights","artist":"Aurora Vale","plays":5}]
+INFO playstream: GET /charts/2026-12-25: 404
+{"error":"no chart for 2026-12-25"}

@@ -8,7 +8,7 @@ shuffle, an external sort, windows, watermarks, checkpoints) is built by hand, i
 Scala 3.9 on JDK 25. Scenes render with `@graphlearning/graphl-flow`; the app shell is
 `@graphlearning/shell`.
 
-**Status:** Course 2 (`start`, the pilot) authored; the rest follow its review. Scope, sections and
+**Status:** all 12 courses (83 sections) authored, replayed and checked at 4K; awaiting review, then audio and recording. Scope, sections and
 diagrams are in [`COURSE-PLAN.md`](COURSE-PLAN.md); working notes in [`CLAUDE.md`](CLAUDE.md).
 
 ## Run it

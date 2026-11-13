@@ -1,12 +1,13 @@
 import type { SceneModel } from '@graphlearning/graphl-flow'
 import { appMap } from '../map'
 import { outputOf } from '../lab'
+import { finishedCode } from '../ship/finished'
 import taste from '../../../spine/intro/01-scala/project/Taste.scala?raw'
 import session from '../../../spine/intro/01-scala/session.txt?raw'
 
 // Course 1 — Scala, and what we'll build. Two concept scenes: a taste of Scala (the intro lab, six
 // real lines replayed on the course's toolchain) beside where Scala is used, and the pipeline's map.
-// 1.2 shows the finished pipeline's real output once Course 12 exists (as java-bank's 1.2 does).
+// 1.2 shows the finished pipeline's real output, from Course 12.4's session (as java-bank's 1.2 does).
 const scala1: SceneModel = {
   title: 'Scala',
   sub: 'typed, functional and object-oriented at once, on the JVM: the language of data engineering',
@@ -36,7 +37,8 @@ export const introScenes: Record<string, SceneModel> = {
   'intro-scala': scala1,
   'intro-what-we-build': appMap({
     title: "What we'll build: Play-Stream's pipeline",
-    sub: 'from counting three plays to ten million, live, on every core: built from the standard library',
+    sub: 'from counting three plays to ten million, live, on every core. On the right: the finished pipeline, really answering',
     built: 0,
+    output: finishedCode('out-http'),
   }),
 }

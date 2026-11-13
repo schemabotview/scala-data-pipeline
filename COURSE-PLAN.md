@@ -2,8 +2,9 @@
 
 **Plan status:** v1, scope agreed with the owner (2026-11-13): big data engineering as the theme, a
 standalone app (standard library + JDK only, like python-expense-tracker), no Spark or other
-framework in the story; the service is Play-Stream. Infra is in; Course 2 (the pilot) is authored
-and awaits review. Shared rules (section shape,
+framework in the story; the service is Play-Stream. All 12 courses (83 sections) authored
+2026-11-13: replayed, checked at 4K, looked at. Awaiting the owner's review; then audio, recording,
+film and publish kit. Shared rules (section shape,
 ◆ detours, packaging, build order) are in `../CLAUDE.md`; this plan states only what is specific
 to Scala.
 
@@ -61,7 +62,7 @@ that can't be mixed up"). The film opens with the finished pipeline's charts and
 | Scala | **3.9.0** (the LTS line; 3.10.1 is the current Next) | A long-lived film should teach the release teams stay on. Every feature below is stable in 3.9 |
 | JDK | OpenJDK **25.0.5.0.3** from Ubuntu's archive (`openjdk-25-jdk-headless`, exact build pinned) | java-bank's install path; its 25.0.4.1 is no longer in the archive (Decision 8) |
 | scala-cli | **1.19.0**, the JVM launcher from Maven Central (`org.virtuslab.scala-cli:cli_3`) | The one tool, from the first script to the packaged jar (Decision 3) |
-| munit / ScalaCheck | 1.3.6 / latest 1.x at pin time, test-only, from Course 9 | Like pytest in the Python course: dev tools, not app dependencies |
+| munit / ScalaCheck | munit-scalacheck 1.3.1 (munit 1.3.6, ScalaCheck 1.20.0), test-only, from Course 9 | Like pytest in the Python course: dev tools, not app dependencies |
 
 Checked 2026-11-13 from the cloud container: Scala 3.9.0, scala-cli 1.19.0, munit 1.3.6 and
 ScalaCheck resolve from repo1.maven.org; github.com is blocked (403), so scala-cli's native
@@ -81,30 +82,31 @@ are `playstream`. The service is **Play-Stream**, fictional (the owner's pick, 2
 listeners are synthetic. The project path is normalised to `/home/ana/playstream`.
 
 ```
-playstream/
-  project.scala             //> using scala 3.9.0 (options later)            (2 →)
-  Main.scala                the script a beginner runs, @main                (2 → 6, then the CLI)
-  playstream/
-    model/  Play (case class), Device, Event (enums), ids (opaque types)     (3, 5)
-            ParseError (enum)                                                (4, 5)
-    parse/  Csv.scala       a line → Either[ParseError, Play]                (4)
-            Json.scala      Json ADT + a recursive-descent parser            (7)
-            Decode.scala    Json → Play                                      (7)
-    transform/  Charts, Sessions, Dedup                                      (6)
-    agg/    Monoid, instances, combineAll                                    (8)
-    codec/  CsvCodec type class, derived from case classes                   (8)
-    io/     Reports: partitioned, atomic writes                              (7)
-    scale/  Partition (shuffle by hand), ExternalSort, Parallel              (10)
-    stream/ Watcher, Windows, Watermark, Checkpoint                          (11)
-    cli/    Config, subcommands                                              (12)
-    api/    Server: JDK HttpServer, GET /charts/<date>                       (12)
-  test/     munit + ScalaCheck                                               (9 →)
-  data/catalog.csv          tracks: id, title, artist, length                (3)
-  data/plays/*.csv          the web player's daily exports                   (4)
-  data/uploads/*.jsonl      the phones' uploads                              (7)
-  data/gen/                 10M seeded events, regenerated, never committed  (10)
-  out/date=YYYY-MM-DD/      what the pipeline writes                         (7)
-  checkpoint/               the stream's saved progress                      (11)
+playstream/                       (as built: a scala-cli project, no packages; folders from 11.1)
+  project.scala            //> using: scala 3.9.0; test deps, javaOpt (9); strict options (9.6)
+  Main.scala               @main run (2 → 11), then @main playstream: chart | stream | serve (12)
+  Play.scala               case class Play private + Play.from, a smart constructor     (3, 5)
+  Device.scala, Event.scala, Ids.scala, Timed.scala, ParseError.scala  the model          (5)
+  Data.scala               the catalog and artists (the export moved to data/ in 7.1)    (4 → 8)
+  Parse.scala              parse: Either[ParseError, Play], parseAll, deviceLabel        (4 → 5)
+  Rules.scala              extension methods: isCounted, toMinutes, deviceKind           (5)
+  Transform.scala          per-track counts, topTracks, fold, dayIn, dedup, sessions     (6)
+  Io.scala                 readLines (Using), write (atomic), readPlays                  (7 → 9)
+  Rank.scala               topN[K](using Ordering[K])                                    (8)
+  Monoid.scala             the type class, its givens, combineAll                        (8)
+  CsvCodec.scala           derived codec (Mirror), RFC 4180 quoting                      (8, 9)
+  Log.scala                System.Logger; the format set in code (12.3)                  (9, 12)
+  Config.scala             defaults ← playstream.conf ← PLAYSTREAM_* ← --flags           (12)
+  Server.scala             JDK HttpServer: GET /charts/<date>                            (12)
+  json/                    Json (enum), JsonParser (recursive descent), Decode           (7)
+  scale/                   Gen, Scale, Stream, Timing, Shuffle (+ salting), Parallel, Sort (10)
+  stream/                  Watch, Arrival, Windows, Watermark, Job (the fold), Checkpoint (11)
+  test/                    ParseTest, MonoidTest, CsvTest: munit + ScalaCheck            (9)
+  data/plays/2026-10-0N.csv  the web player's daily exports                              (7)
+  data/uploads/phone-u03.jsonl  a phone's upload, one line cut short                     (7)
+  data/stream/b1 … b4.jsonl  four uploads for the streaming job                          (11)
+  data/big/plays.csv       10M seeded plays, regenerated by each step, never committed   (10)
+  out/, reports/, checkpoint/, inbox/  what the pipeline writes and watches (never committed)
 ```
 
 | After course | The pipeline can… |
@@ -343,6 +345,23 @@ Course 4 reads its export from a String in `Data.scala`; files arrive in Course 
 9. scala-cli is its JVM launcher from Maven Central (`org.virtuslab.scala-cli:cli_3:1.19.0`, 169
    jars resolved by Maven), behind a launcher script that keeps the proxy's `JAVA_TOOL_OPTIONS` out
    of every child JVM. It reports itself exactly as the native launcher does.
+10. Found while authoring (2026-11-13), each recorded where it lives:
+    - Course 4 reads its export from a triple-quoted String in `Data.scala`; `export` is a Scala 3
+      keyword, so it is `webExport`. Course 7 moves it to `data/plays/<date>.csv` (short names: the
+      explorer cuts long ones in the middle).
+    - 5.5 validates a whole `Play` (`Play.from`, private constructor) rather than a `Millis` type.
+    - JDK 25 warns about `sun.misc.Unsafe` from Scala's own library in test JVMs:
+      `//> using javaOpt --sun-misc-unsafe-memory-access=allow` (9.1). A transcript too long for the
+      terminal uses scala-cli's `-q`, which hides only its own Compiling lines.
+    - 9.4's property runs with a fixed ScalaCheck seed, so its failure replays identically.
+    - Course 10's jobs are extra `@main` methods run with `-M`; the 10M-play file is generated by a
+      hidden `setup` command in each step, never stored. Timings are `volatile`; the narration rounds.
+    - 11.1 moves Course 10's code to `scale/` and the JSON code to `json/` (the explorer had outgrown
+      the frame); streaming is micro-batch (`tick`), so every replay is deterministic.
+    - 12.3: a jar does not read `project.scala`, so the log format moved into `Log.scala`; output
+      strings stay ASCII (a plain `java -jar` writes ASCII here).
+    - 12.5 and 12.6 are concept frames (the app map with the jar's real HTTP answers; where next);
+      1.2 shows the same real answers as its payoff.
 
 ## Open
 

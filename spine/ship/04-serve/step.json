@@ -1,0 +1,1 @@
+{"from": "ship/03-package", "changes": ["Main.scala", "Server.scala"], "setup": ["scala-cli --power package . --assembly --main-class playstream -o playstream.jar -f -q", "./playstream.jar chart --top=3"]}

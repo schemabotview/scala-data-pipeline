@@ -1,0 +1,16 @@
+$ scala-cli run . -q -M playstream -- chart --top=3
+INFO playstream: read 2 files: 42 plays, 4 rejected
+WARNING playstream: line 5: not a number: 3x
+WARNING playstream: line 6: unknown track: t99
+WARNING playstream: line 7: 4 fields, not 6
+WARNING playstream: line 9: negative duration: -3000
+INFO playstream: 1 duplicate(s) dropped
+INFO playstream: 2026-10-01: 28 plays, top 3 written
+INFO playstream: 2026-10-02: 8 plays, top 3 written
+$ cat reports/date=2026-10-01/chart.csv
+rank,title,artist,plays
+1,Slow Tide,Mara Quell,6
+2,Night Bus,Kofi and the Static,6
+3,Northern Lights,Aurora Vale,5
+$ scala-cli run . -q -M playstream -- help
+usage: playstream chart | stream  [--top=N] [--zone=Z] [--data=DIR] [--out=DIR]
