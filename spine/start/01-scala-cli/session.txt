@@ -1,0 +1,12 @@
+$ ls
+project.scala
+$ java --version
+openjdk 25.0.5.0.3 2026-10-24
+OpenJDK Runtime Environment (build 25.0.5.0.3+1-1-24.04.1-Ubuntu)
+OpenJDK 64-Bit Server VM (build 25.0.5.0.3+1-1-24.04.1-Ubuntu, mixed mode, sharing)
+$ scala-cli version
+Scala CLI version: 1.19.0
+Scala version (default): 3.10.1
+$ scala-cli compile .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))

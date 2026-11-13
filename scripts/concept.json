@@ -1,0 +1,12 @@
+{
+  "_comment": "Per-repo publishing identity, read by @graphlearning/shell's thumb / gen-descriptions scripts. Env vars (CONCEPT, SITE, APP_PATH, HASHTAGS, PANEL_BG) still override.",
+  "concept": "Scala",
+  "site": "https://graphl.in",
+  "appPath": "/scala-data-pipeline",
+  "hashtags": "#Scala #LearnScala #DataEngineering #Programming",
+  "panelBg": "radial-gradient(118% 104% at 70% 34%, #f0605a 0%, #a8231f 44%, #12161c 100%)",
+  "film": {
+    "title": "Learn Scala by building a data pipeline: full course, beginner to professional",
+    "blurb": "Every line of code is really run with Scala 3.9.0 on OpenJDK 25 — every compiler message, stack trace and printed value you see is real output."
+  }
+}

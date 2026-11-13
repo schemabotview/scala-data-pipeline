@@ -1,8 +1,9 @@
 # Learn Scala by building a data pipeline: full course, beginner to professional — plan
 
-**Plan status:** draft v1 (2026-11-13), awaiting the owner's review. Scope agreed: big data
-engineering as the theme, a standalone app (standard library + JDK only, like
-python-expense-tracker), no Spark or other framework in the story. Shared rules (section shape,
+**Plan status:** v1, scope agreed with the owner (2026-11-13): big data engineering as the theme, a
+standalone app (standard library + JDK only, like python-expense-tracker), no Spark or other
+framework in the story; the service is Play-Stream. Infra is in; Course 2 (the pilot) is authored
+and awaits review. Shared rules (section shape,
 ◆ detours, packaging, build order) are in `../CLAUDE.md`; this plan states only what is specific
 to Scala.
 
@@ -58,14 +59,15 @@ that can't be mixed up"). The film opens with the finished pipeline's charts and
 | | Pin | Why |
 | --- | --- | --- |
 | Scala | **3.9.0** (the LTS line; 3.10.1 is the current Next) | A long-lived film should teach the release teams stay on. Every feature below is stable in 3.9 |
-| JDK | OpenJDK 25 from Ubuntu's archive (`openjdk-25-jdk-headless`, exact build pinned) | Same pin and install path as java-bank (`scripts/install-jdk.sh` is ported) |
+| JDK | OpenJDK **25.0.5.0.3** from Ubuntu's archive (`openjdk-25-jdk-headless`, exact build pinned) | java-bank's install path; its 25.0.4.1 is no longer in the archive (Decision 8) |
 | scala-cli | **1.19.0**, the JVM launcher from Maven Central (`org.virtuslab.scala-cli:cli_3`) | The one tool, from the first script to the packaged jar (Decision 3) |
 | munit / ScalaCheck | 1.3.6 / latest 1.x at pin time, test-only, from Course 9 | Like pytest in the Python course: dev tools, not app dependencies |
 
 Checked 2026-11-13 from the cloud container: Scala 3.9.0, scala-cli 1.19.0, munit 1.3.6 and
 ScalaCheck resolve from repo1.maven.org; github.com is blocked (403), so scala-cli's native
-launcher and the usual `cs setup` install are out. `scripts/install-scala.sh` fetches coursier
-and the scala-cli JVM launcher from Maven Central, sha-checked, into `.toolchain/` (Open 1).
+launcher and the usual `cs setup` install are out. `scripts/install-scala.sh` resolves scala-cli's
+JVM launcher from Maven Central with Maven (Decision 9). `project.scala` pins Scala only: `//> using
+jvm 25` makes scala-cli fetch a JVM index from github.com, so the JDK is `JAVA_HOME`.
 
 Scala 3 features used: indentation syntax and `@main` (2), named tuples (3.6), `enum` ADTs and
 exhaustiveness (5), opaque types and extension methods (5), `given`/`using` and `derives` with
@@ -75,12 +77,12 @@ used. The app's only imports are `scala.*` and `java.*`.
 ## The app: `playstream`
 
 One name everywhere: the folder, the scala-cli project, the jar, the command and the root package
-are `playstream`. The service itself is fictional (its name is Open 2). The data engineer is Ana;
+are `playstream`. The service is **Play-Stream**, fictional (the owner's pick, 2026-11-13). The data engineer is Ana;
 listeners are synthetic. The project path is normalised to `/home/ana/playstream`.
 
 ```
 playstream/
-  project.scala             //> using scala 3.9.0, jvm 25, options          (2 →)
+  project.scala             //> using scala 3.9.0 (options later)            (2 →)
   Main.scala                the script a beginner runs, @main                (2 → 6, then the CLI)
   playstream/
     model/  Play (case class), Device, Event (enums), ids (opaque types)     (3, 5)
@@ -131,7 +133,7 @@ The bad rows are real, each one the reason a feature exists:
 
 | Bad row | Caught by |
 | --- | --- |
-| `3x` as `ms_played` | 2.6 (an exception), then 4.8 (`Either`) |
+| `3x` as `ms_played` | 2.6 (an exception: `"3x".toInt`), then 4.8 (`Either`) |
 | A play of `-3000` ms | 5.5 (a smart constructor) |
 | A track id not in the catalog | 4.10, reported with the line number |
 | The same `event_id` twice (a phone retried the upload) | 6.6 (dedup) |
@@ -160,11 +162,11 @@ scene as a `code` node imported from a lab. ◆ side pane = a small picture of t
   pins. `JAVA_TOOL_OPTIONS` (set by the cloud proxy) is moved out of the JVM's sight, as java-bank
   does, or every transcript starts with "Picked up JAVA_TOOL_OPTIONS".
 - **scala-cli's own lines are real output**: "Compiling project (Scala 3.9.0, JVM (25))" stays in
-  the transcript, because the viewer sees it too. Its timings and the Bloop server's start-up are
-  `volatile`. Each step runs with a warm, pinned dependency cache, so no download lines appear
-  except in 2.1, where the first download IS the lesson.
-- **The REPL** (`scala-cli repl`) prompts are `scala> ` and `     | ` (continuation); typing waits
-  for a NEW prompt, as java-bank's jshell replay does.
+  the transcript, because the viewer sees it too. Each step runs with the machine's warm coursier
+  cache, so no download lines appear: the first download is a page of URLs, and 2.1 says it in the
+  narration instead. scala-cli colours its output on any terminal; the replay strips it.
+- **The REPL** (`scala-cli repl .`) prompts are `scala> ` and `     | ` (continuation); typing waits
+  for a NEW prompt, as java-bank's jshell replay does. It prints a blank line between results.
 - **Course 10's sizes and timings** are rounded and tied to the build; the 10M file is regenerated
   by the step, never stored.
 
@@ -181,12 +183,12 @@ scene as a `code` node imported from a lab. ◆ side pane = a small picture of t
 
 | # | Section | Step | Side pane |
 | --- | --- | --- | --- |
-| 1 | A folder and scala-cli | `scala-cli version`; `project.scala` pins Scala and the JDK | scala-cli → fetches compiler + library once → cache |
-| 2 | `Main.scala` | `@main` prints the count of three plays | source → compiler → `.class` + `.tasty` → JVM → stdout |
-| 3 | ◆ full scene: what `scala-cli run` does | concept + lab (`.scala-build/`, `javap` on our class) | parser → typer → … → bytecode, beside the real `javap` |
-| 4 | The REPL beside the editor | `scala-cli repl`; `3 * 214_000` ms, then write it down | read → eval → print → loop |
-| 5 | A compile error | `val plays: Int = "3"`; nothing runs | the typer refuses the build; error anatomy |
-| 6 | An exception | `"3x".toInt`; the first line already printed | compile time vs run time, the two errors compared |
+| 1 | scala-cli | `java --version`, `scala-cli version` (default 3.10.1); `project.scala` pins 3.9.0, and `compile .` uses the pin | scala-cli → Scala 3.9.0 (fetched once) → JDK 25 |
+| 2 | `Main.scala` | `@main def run()` prints the name, 3 plays, and `214_000 / 60_000` minutes: 3, not 3.57 | `scala-cli run .`: files → compiled → `run()`; Int / Int is an Int |
+| 3 | ◆ full scene: what `scala-cli run .` does | concept + lab (`-Vprint:typer`, `--compilation-output`, `javap`) | source → the `run` class @main adds → `.class` + `.tasty` → bytecode (`iconst_3`: folded at compile time) → `main` → output |
+| 4 | The REPL beside the editor | `214_000 / 60_000` → `Int = 3`, `/ 60_000.0` → `Double`; line 5 fixed | read → eval → print, with the type |
+| 5 | A compile error | `val plays: Int = "3"`; nothing runs; the misspelt `prinln` ("did you mean println?") beside it | every type checked first; error anatomy |
+| 6 | An exception | `"3x".toInt`; line 3 already printed | the stack trace read; compile time vs run time |
 
 **3. `hold` · Hold the data · 9**
 
@@ -330,17 +332,23 @@ scene as a `code` node imported from a lab. ◆ side pane = a small picture of t
    a parser is the clearest picture of Scala's strengths.
 7. Infra ported from java-bank (toolchain pinning, `spine.py`, IDE frame v2, checks, film) and
    python-expense-tracker (Colab notebook, registry). Course 2 is the pilot; then 1, 3–12, each
-   reviewed on its rendered routes before the next.
+   reviewed on its rendered routes before the next. Done for the pilot (2026-11-13): toolchain,
+   `spine.py`, frame v2 (v2 only: no v1 template), checks, shots. Not yet: the Colab notebook, the
+   audio manifest, `film.mjs`, `thumb-film.mjs` (stages after the courses are approved).
+8. The JDK pin is Ubuntu's current build, 25.0.5.0.3 (2026-11-13). The archive keeps only the
+   newest build; java-bank's 25.0.4.1 can no longer be installed by its own script.
+9. scala-cli is its JVM launcher from Maven Central (`org.virtuslab.scala-cli:cli_3:1.19.0`, 169
+   jars resolved by Maven), behind a launcher script that keeps the proxy's `JAVA_TOOL_OPTIONS` out
+   of every child JVM. It reports itself exactly as the native launcher does.
 
 ## Open
 
-1. **Toolchain install** (`scripts/install-scala.sh`): coursier and the scala-cli JVM launcher
-   from Maven Central, sha-checked. The JVM launcher starts slower than the native one; measure
-   it in the pilot and confirm Bloop runs in the container.
-2. **The service's name**: the owner's pick, checked against real companies (as java-bank's
-   "Syndica Bank" was).
-3. **Engine gap (graphl-flow minor)**: a Scala keyword set (`given`, `using`, `extension`,
-   `opaque`, `derives`, `enum`, `object`, `trait`, `then`, soft keywords), the `scala> ` and
-   `     | ` prompts in `parsePrompt`, and a `scala` brand icon. Needed before Course 2 is drawn.
-4. **The shell's `graphl-shots-4k`** shoots only the first course (noted in
-   typescript-diagram-engine): use that repo's `scripts/shots.mjs` until it is fixed in ui-shell.
+1. **Engine gap (graphl-flow minor), deferred by the owner (2026-11-13)**: 0.11 already has
+   `lang: 'scala'`, and its shared keyword set covers Courses 2–4 (`val`, `def`, `object`, `trait`,
+   `match`, `case`, `enum`, `then`, `using`). Missing from Course 5 on: `given`, `extension`,
+   `opaque`, `derives`, `lazy`, `override`, `inline`; a `.scala` icon in the explorer. REPL lines
+   are drawn as output, as java-bank's jshell lines are, so `parsePrompt` needs nothing.
+2. **The shell's `graphl-shots-4k`** shoots only the first course (noted in
+   typescript-diagram-engine): this repo's `scripts/shots.mjs` is used until it is fixed in ui-shell.
+3. **"Play-Stream" as the service's name**: a common phrase; a trademark search before the film
+   is published, as java-bank's "Syndica Bank" was checked.

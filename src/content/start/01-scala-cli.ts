@@ -1,0 +1,9 @@
+import type { Section } from '../types'
+
+export const scalaCli: Section = {
+  id: 'scala-cli',
+  title: 'scala-cli: one tool to compile and run Scala',
+  scene: 'start-scala-cli',
+  narration:
+    "Everything in this course is built with one tool, scala-cli. It compiles Scala, runs it, opens the REPL, runs tests and, at the end, packages the finished pipeline. The diagram on the right shows how the parts fit. scala-cli is the command you type. The first time it needs a version of Scala, it fetches the compiler and the standard library and keeps them in a cache, so it never downloads them again. And the code it compiles runs on the JVM, so underneath it all is a JDK, here OpenJDK 25. Our project is a folder called playstream, and so far it holds one file, project dot scala, open in the editor. It has a single line, a directive. Two slashes and a greater-than sign mark a line that scala-cli reads, and this one says: using Scala three point nine point zero. Scala 3.9 is a long term support release, the line that teams stay on for years, and pinning it here means everyone who builds this folder gets the same compiler. Now the terminal. ls shows the one file. java dash dash version answers openjdk twenty five. scala-cli version names itself, one point nineteen, and the Scala it would use by default: three point ten point one, the newest release. Then scala-cli compile, with a dot for this folder. Look at what it says: Compiling project, Scala three point nine point zero. The pin in project dot scala won over the default. There is no code yet, so there is nothing to run, but scala-cli also left a folder behind, dot scala dash build, muted in the explorer. That is its own workspace, where compiled files go. We never edit it. In the next section, playstream gets its first lines of code.",
+}

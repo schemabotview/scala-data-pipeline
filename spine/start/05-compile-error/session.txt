@@ -1,0 +1,9 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+[error] ./Main.scala:4:20
+[error] Found:    ("3" : String)
+[error] Required: Int
+[error]   val plays: Int = "3"
+[error]                    ^^^
+Error compiling project (Scala 3.9.0, JVM (25))
+Compilation failed

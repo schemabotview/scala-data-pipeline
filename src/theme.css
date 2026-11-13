@@ -1,0 +1,7 @@
+/* This repo's whole design surface — the token @graphlearning/shell leaves to the repo. Imported
+   AFTER the shell's stylesheet in main.tsx, so it wins the cascade. A Scala red, lifted from the
+   logo's #dc322f (3.7:1, too dark on the canvas) to #f0605a: 5.3:1 on the dark canvas (#1a1d23).
+   A light deck would have to re-pick it. */
+:root {
+  --brand: #f0605a;
+}

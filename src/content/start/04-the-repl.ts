@@ -1,0 +1,9 @@
+import type { Section } from '../types'
+
+export const theRepl: Section = {
+  id: 'the-repl',
+  title: 'The REPL beside the editor: try a line first',
+  scene: 'start-repl',
+  narration:
+    "Scala has a second way to run code, and it is the one to reach for whenever you are not sure what a line will do. scala-cli repl, with a dot for this folder, starts the REPL. The name describes the loop on the right: it reads the line you type, evaluates it at once, prints the result, and loops back for the next. It even compiled our project first, so the REPL knows everything in the folder. We try the division from line five. Two hundred fourteen thousand divided by sixty thousand. The answer reads: val res zero, colon Int, equals three. That one line tells you three things. res zero is a name the REPL gave the result, so you can use it again. Int is its type. And three is its value. The REPL always shows you the type, and that is exactly what we needed to see. Two Ints divided give an Int. Now add point zero to sixty thousand, and try again. This time it says Double, three point five six six six, and so on. A Double is a number with a fractional part, and once one side of the division is a Double, Scala divides as Doubles and keeps the fraction. Colon quit leaves the REPL. The table at the bottom puts the REPL and the file side by side. The REPL runs one line at a time and shows every value and its type, but when you quit, everything you tried is gone. The file runs from run's first line to its last, shows only what it prints, and keeps every line. So the REPL is for trying, and the file is for the pipeline. Having tried it, we write the fix into line five, sixty thousand point zero, and run the file again. Minutes played: three point five six six six, on and on, ending in a seven. The fraction is back, with far too many digits. Formatting it properly comes in the next course.",
+}

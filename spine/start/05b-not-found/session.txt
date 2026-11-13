@@ -1,0 +1,8 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+[error] ./Main.scala:3:3
+[error] Not found: prinln - did you mean println?
+[error]   prinln("playstream")
+[error]   ^^^^^^
+Error compiling project (Scala 3.9.0, JVM (25))
+Compilation failed

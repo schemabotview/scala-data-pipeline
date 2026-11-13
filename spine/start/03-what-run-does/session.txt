@@ -1,0 +1,75 @@
+$ scala-cli compile . --compilation-output out
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+$ ls out
+Main$package$.class
+Main$package.class
+Main$package.tasty
+run.class
+run.tasty
+$ javap -cp out run
+Compiled from "Main.scala"
+public final class run {
+  public run();
+  public static void main(java.lang.String[]);
+}
+$ javap -c -cp out 'Main$package$'
+Compiled from "Main.scala"
+public final class Main$package$ {
+  public static final Main$package$ MODULE$;
+
+  public static {};
+    Code:
+         0: new           #2                  // class Main$package$
+         3: dup
+         4: invokespecial #22                 // Method "<init>":()V
+         7: putstatic     #24                 // Field MODULE$:LMain$package$;
+        10: return
+
+  public void run();
+    Code:
+         0: getstatic     #37                 // Field scala/Predef$.MODULE$:Lscala/Predef$;
+         3: ldc           #39                 // String playstream
+         5: invokevirtual #43                 // Method scala/Predef$.println:(Ljava/lang/Object;)V
+         8: getstatic     #37                 // Field scala/Predef$.MODULE$:Lscala/Predef$;
+        11: iconst_3
+        12: invokedynamic #55,  0             // InvokeDynamic #0:makeConcatWithConstants:(I)Ljava/lang/String;
+        17: invokevirtual #43                 // Method scala/Predef$.println:(Ljava/lang/Object;)V
+        20: getstatic     #37                 // Field scala/Predef$.MODULE$:Lscala/Predef$;
+        23: iconst_3
+        24: invokedynamic #58,  0             // InvokeDynamic #1:makeConcatWithConstants:(I)Ljava/lang/String;
+        29: invokevirtual #43                 // Method scala/Predef$.println:(Ljava/lang/Object;)V
+        32: return
+}
+$ scala-cli compile . -O -Vprint:typer
+Compiling project (Scala 3.9.0, JVM (25))
+[[syntax trees at end of                     typer]] // /home/ana/playstream/Main.scala
+package <empty> {
+  final lazy module val Main$package: Main$package = new Main$package()
+  final module class Main$package() extends Object() {
+    this: Main$package.type =>
+    @main def run(): Unit =
+      {
+        println("playstream")
+        println("plays today: " + 3)
+        println("minutes played: " + 214000 / 60000)
+      }
+  }
+  final class run() extends Object() {
+    <static> def main(args: Array[String]): Unit =
+      try run() catch 
+        {
+          case error @ _:scala.util.CommandLineParser.ParseError =>
+            scala.util.CommandLineParser.showError(error)
+        }
+  }
+}
+
+[[syntax trees at end of                     typer]] // /home/ana/playstream/project.scala
+<empty>
+
+Compiled project (Scala 3.9.0, JVM (25))
+$ scala-cli run .
+playstream
+plays today: 3
+minutes played: 3

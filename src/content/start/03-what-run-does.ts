@@ -1,0 +1,9 @@
+import type { Section } from '../types'
+
+export const whatRunDoes: Section = {
+  id: 'what-run-does',
+  title: 'What scala-cli run does',
+  scene: 'start-what-run-does',
+  narration:
+    "scala-cli run did two jobs in one command: it compiled the folder, and then it ran the result. Here we take it apart, and every box holds the real output of a tool. Box one is the source, the five lines we wrote. Box two is the compiler's own view of them. Asked to print the program after its typer phase, the phase that works out every type, it shows something we never wrote: a class called run, with a method called main that takes an array of Strings. That is what the at main annotation asked for. The JVM knows nothing about Scala. It looks for a class with a static main method, so the compiler writes one, and that main simply calls our run. Box three lists what the compiler wrote to disk. Each piece of the program became a dot class file, which holds bytecode, the instructions the JVM runs. And beside each, a dot tasty file. TASTy is Scala's own format: the fully typed tree of the code, which the compiler and editor tools read when other code uses ours. Box four opens the bytecode of run with javap dash c. Each println becomes a few instructions: fetch Predef, the object that holds println, build the text, call println. Now look at the highlighted instruction for line five. iconst underscore three. Push the number three. The division is not in the bytecode at all. The compiler saw two constant Ints, divided them itself, and stored the answer, three. So the point five seven was not lost while the program ran. It was gone before the program ever started. Box five shows where the JVM begins: javap on the class run lists public static void main, the method the compiler added in box two. And box six is what was printed. Every Scala program, however large, travels this same path: source, types, bytecode, the JVM.",
+}

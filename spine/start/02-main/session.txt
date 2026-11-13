@@ -1,0 +1,6 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+playstream
+plays today: 3
+minutes played: 3
