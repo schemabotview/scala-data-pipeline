@@ -1,0 +1,7 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+plays today: 5
+first: e0001, last: e0005
+the third: Play(e0003,u01,t04,2026-10-01T07:16:02Z,61000,Some(phone))
+the fifth, from a Vector: t02

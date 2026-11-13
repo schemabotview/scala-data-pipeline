@@ -1,0 +1,7 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+plays: 5, withLate: 6
+plays still starts at e0001
+withLate shares plays as its tail: true
+214000 is untouched; the copy has 200000

@@ -1,0 +1,8 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+(t03,214000)
+t03
+t03: 214000 ms
+(t03,17)
+t03 is number one with 17 plays

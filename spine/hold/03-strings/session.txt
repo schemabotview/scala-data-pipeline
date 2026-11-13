@@ -1,0 +1,6 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+track t03, played by u01 on a phone
+started at 2026-10-01, 07:12 UTC
+minutes played: 3.57

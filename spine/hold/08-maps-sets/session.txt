@@ -1,0 +1,8 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+plays today: 5
+t03 is Slow Tide
+t09 is None
+listeners: Set(u01, u02, u03), 3 of them
+did u04 listen? false
