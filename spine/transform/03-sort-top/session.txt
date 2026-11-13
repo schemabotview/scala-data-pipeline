@@ -1,0 +1,9 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+Top tracks, 1 October
+ 1. Night Bus         7
+ 2. Slow Tide         6
+ 3. Northern Lights   5
+ 4. Paper Boats       4
+ 5. Copper Sky        3

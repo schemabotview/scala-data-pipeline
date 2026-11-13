@@ -1,0 +1,5 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+Slow Tide's plays: List(e0001, e0014, e0023, e0026, e0031, e0039)
+plays per track: HashMap(t07 -> 1, t02 -> 4, t06 -> 3, t03 -> 6, t04 -> 2, t05 -> 7, t08 -> 1, t01 -> 5)

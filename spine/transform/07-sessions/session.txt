@@ -1,0 +1,8 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+u01: 11 plays
+  session 1: from 07:12, 5 plays, 10.0 min
+  session 2: from 12:05, 4 plays, 9.2 min
+  session 3: from 22:40, 2 plays, 6.4 min
+all listeners: 12 sessions

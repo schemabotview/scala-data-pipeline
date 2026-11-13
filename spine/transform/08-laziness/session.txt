@@ -1,0 +1,8 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+nothing parsed yet
+  parsing e0001
+  parsing e0002
+took 2: List(Right(e0001), Right(e0002))
+first 4-minute play: List(e0010)

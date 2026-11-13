@@ -1,0 +1,7 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+34 plays parsed, 29 counted
+minutes counted: 90.6
+devices seen: List(Phone, Car, Web)
+plays with no device: 6

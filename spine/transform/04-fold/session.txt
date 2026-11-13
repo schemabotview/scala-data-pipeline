@@ -1,0 +1,12 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+Minutes listened, per listener
+  u01  24.9
+  u03  17.8
+  u02  14.7
+  u04  10.7
+  u05   8.6
+  u08   7.6
+  u07   3.4
+  u06   2.9

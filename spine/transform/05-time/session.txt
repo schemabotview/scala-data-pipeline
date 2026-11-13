@@ -1,0 +1,6 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+days in UTC:      Map(2026-10-01 -> 26, 2026-10-02 -> 3)
+days in New York: Map(2026-10-01 -> 29)
+plays on a different day: List(e0035, e0039, e0040)
