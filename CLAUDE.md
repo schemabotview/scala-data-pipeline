@@ -34,7 +34,7 @@ overrides. Infra ported from **java-bank** (spine replay, IDE frame v2, checks);
 | 12 | `ship` | 6 | authored |
 
 All 83 sections authored 2026-11-13: every spine step replayed, `npm run check` clean at 4K, every
-frame looked at. Awaiting the owner's review; then audio (the Colab notebook is not ported yet),
+frame looked at. Awaiting the owner's review; then audio (the notebook and manifest are in; no wavs yet),
 recording, the film and the publish kit.
 
 ## Toolchain: OpenJDK 25.0.5.0.3, scala-cli 1.19.0, Scala 3.9.0
@@ -103,7 +103,10 @@ scripts/look.sh <dir> <course or scene>              # 4K shots, 1920×1080 copi
   lifted for contrast (5.3:1 on the dark canvas).
 - No `file:` installs committed.
 - The app is standard library only; munit and ScalaCheck arrive in Course 9, test-only.
-- Narration: `.tts` → `.wav` via Colab + Chatterbox only (not ported yet).
+- Narration: `.tts` → `.wav` via Colab + Chatterbox only. Audio at `public/audio/<course>/<id>.wav`.
+  `scripts/audio-manifest.json` (`npm run gen:audio`, 83 sections) and the Colab notebook
+  (`scripts/colab_generate_audio.ipynb`, `REPO = "scala-data-pipeline"`, `BRANCH = "main"`, ported
+  from java-bank) are in; regenerate and commit the manifest after any narration edit.
 
 ## Working agreement
 
