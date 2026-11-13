@@ -1,4 +1,5 @@
 import type { SceneModel } from '@graphlearning/graphl-flow'
+import { introScenes } from './intro'
 import { startScenes } from './start'
 
 // Scene registry. Sections reference scenes by id; a graphl-flow scene carries no id of its own, so
@@ -6,7 +7,7 @@ import { startScenes } from './start'
 // each folder exporting a Record; ids are globally unique, and a duplicate THROWS rather than
 // letting one course's scene shadow another's. A scene no section uses yet is still reachable at
 // the shell's bare scene route, `#/<sceneId>` (`npm run shots -- <sceneId>`).
-const GROUPS: Record<string, SceneModel>[] = [startScenes]
+const GROUPS: Record<string, SceneModel>[] = [introScenes, startScenes]
 
 export const SCENES: Record<string, SceneModel> = {}
 for (const group of GROUPS)

@@ -1,0 +1,4 @@
+$ scala-cli run .
+Compiling project (Scala 3.9.0, JVM (25))
+Compiled project (Scala 3.9.0, JVM (25))
+Map(t01 -> 275000, t02 -> 198000)
