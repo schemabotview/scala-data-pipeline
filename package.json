@@ -14,6 +14,7 @@
     "record": "graphl-record",
     "record:all": "caffeinate -ims graphl-record-all",
     "record:reels": "graphl-record-reels",
+    "film": "node scripts/film.mjs",
     "shots:4k": "graphl-shots-4k",
     "gen:audio": "graphl-gen-audio",
     "gen:desc": "graphl-gen-desc",
