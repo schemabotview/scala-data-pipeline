@@ -19,6 +19,7 @@
     "gen:audio": "graphl-gen-audio",
     "gen:desc": "graphl-gen-desc",
     "thumb": "graphl-thumb",
+    "thumb:film": "node scripts/thumb-film.mjs",
     "check:spine": "python3 scripts/spine.py",
     "shots": "node scripts/shots.mjs"
   },

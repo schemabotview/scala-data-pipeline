@@ -1,0 +1,8 @@
+scala-spiral.svg: the Scala spiral, cut UNALTERED (paths and colours as published) from the
+full-colour Scala logo on Wikimedia Commons:
+https://upload.wikimedia.org/wikipedia/commons/3/39/Scala-full-color.svg
+Only the wordmark paths were dropped and the viewBox cropped to the spiral.
+
+The Scala logo is a trademark of EPFL / the Scala Center. It is used on the film cover to name
+the language the course teaches; this project is not affiliated with or endorsed by them.
+`npm run thumb:film -- --mark glyph` builds the cover with the repo's own `=>` mark instead.

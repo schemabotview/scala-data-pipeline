@@ -36,8 +36,8 @@ overrides. Infra ported from **java-bank** (spine replay, IDE frame v2, checks);
 All 83 sections authored 2026-11-13: every spine step replayed, `npm run check` clean at 4K, every
 frame looked at. Audio: all 83 wavs in (Colab). Recorded 2026-11-15: all 12 courses at 3840×2160
 (`record:all`, 2.4 s loop, 134 min in total), in `scripts/out/`. Film built (`npm run film`, from
-java-bank): `scripts/out/film.mp4` 2:14:20, 83 chapters in `film.txt`. Next: `thumb:film` (java-bank's
-is Java-specific: needs a Scala cover), then `gen:desc` and the publish kit.
+java-bank): `scripts/out/film.mp4` 2:14:20, 83 chapters in `film.txt`. Film cover: `npm run thumb:film` →
+`output/thumbnails/film.png` (real output from 12.4). Next: `gen:desc` and the publish kit.
 
 ## Toolchain: OpenJDK 25.0.5.0.3, scala-cli 1.19.0, Scala 3.9.0
 
